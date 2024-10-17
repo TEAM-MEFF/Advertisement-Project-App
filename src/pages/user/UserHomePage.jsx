@@ -1,7 +1,7 @@
 import React from "react";
 import RootLayout from "../layouts/RootLayout";
 
-const UserHome = () => {
+const UserHomePage = () => {
   return (
     <div>
       <RootLayout headerText="Home Page Home Page">
@@ -19,4 +19,4 @@ const UserHome = () => {
   );
 };
 
-export default UserHome;
+export default UserHomePage;

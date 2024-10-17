@@ -1,18 +1,21 @@
-import React from "react";
-import RootLayout from "../layouts/RootLayout";
+import React, { useEffect, useState } from "react";
+import RootLayout from "../../layouts/RootLayout";
+import CategoriesBar from "./components/CategoriesBar";
 
 const UserHomePage = () => {
+  const [categoriesBarToggle, setCategoriesBarToggle] = useState(false);
+
+  useEffect(() => {
+    console.log(categoriesBarToggle);
+  }, [categoriesBarToggle]);
   return (
     <div>
       <RootLayout headerText="Home Page Home Page">
         <div>
-          <div></div>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed,
-            commodi nisi dolorem illum deserunt magnam optio, placeat ratione
-            expedita, aut fugit molestiae quo consectetur alias iste nulla
-            dolorum laboriosam blanditiis!
-          </p>
+          <CategoriesBar
+            categoriesBarToggle={categoriesBarToggle}
+            setCategoriesBarToggle={setCategoriesBarToggle}
+          />
         </div>
       </RootLayout>
     </div>

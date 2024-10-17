@@ -6,12 +6,15 @@ import DashboardLayout from "./layouts/DashboardLayout";
 import RootLayout from "./layouts/RootLayout";
 import Overview from "./pages/dashboard/Overview";
 import Settings from "./pages/dashboard/Settings";
+import CategoriesBar from "./pages/user/components/CategoriesBar";
+import { useState } from "react";
+import UserHomePage from "./pages/user/UserHomePage";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Home />
+      element: <Home />,
     },
     {
       path: "/about",
@@ -20,6 +23,10 @@ function App() {
     {
       path: "/root",
       element: <RootLayout />,
+    },
+    {
+      path: "/categoriesBar",
+      element: <UserHomePage />,
     },
     {
       path: "/dashboard",

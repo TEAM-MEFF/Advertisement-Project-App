@@ -12,6 +12,7 @@
   "dependencies": {
     "@ionic/react": "^8.3.3",
     "@reacticons/ionicons": "^7.1.0",
+    "antd": "^5.21.5",
     "axios": "^1.7.7",
     "ionicons": "^7.4.0",
     "react": "^18.3.1",

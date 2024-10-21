@@ -7,6 +7,7 @@ import {
   VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
+import { useNavigate } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
@@ -15,6 +16,7 @@ const VendorLayout = () => {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
+  const navigate = useNavigate ()
 
   return (
     <div>
@@ -35,6 +37,9 @@ const VendorLayout = () => {
           
           {/* Menu */}
           <Menu
+          onClick={(item) => {
+          navigate(item.key);
+          }}
             theme="dark"
             mode="inline"
             defaultSelectedKeys={["1"]}

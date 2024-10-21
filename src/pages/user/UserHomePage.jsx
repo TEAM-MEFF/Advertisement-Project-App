@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import RootLayout from "../../layouts/RootLayout";
-import CategoriesBar from "./components/CategoriesBar";
 import CategoriesSection from "./components/CategoriesSection";
 import UserLogIn from "../../components/UserLogIn";
 import UserSignUp from "../../components/UserSignUp";
-import VendorLogIn from "../../components/VendorLogIn";
-import VendorSignUp from "../../components/VendorSignUp";
+import Sidebar from "../../components/Sidebar";
+import Navbar from "../../components/Navbar";
+import Dashboard from "../../components/Dashboard";
 
 const UserHomePage = () => {
   const [categoriesBarToggle, setCategoriesBarToggle] = useState(false);
@@ -17,14 +17,13 @@ const UserHomePage = () => {
     <div>
       <RootLayout headerText="Home Page Home Page">
         <div>
-          <CategoriesBar
-            categoriesBarToggle={categoriesBarToggle}
-            setCategoriesBarToggle={setCategoriesBarToggle}
-          />
+          <Navbar/>
+          <Dashboard/>
+         <Sidebar/>
           <UserLogIn/>
+          <br />
           <UserSignUp/>
-          <VendorLogIn/>
-          <VendorSignUp/>
+          <br />
           <CategoriesSection/>
         </div>
       </RootLayout>

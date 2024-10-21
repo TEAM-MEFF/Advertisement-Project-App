@@ -1,7 +1,11 @@
 import React from "react";
 
 const PostAd = () => {
-  return <div>PostAd</div>;
+  return (
+    <div>
+      <Typography.Text>Post Ad</Typography.Text>
+    </div>
+  );
 };
 
 export default PostAd;

@@ -45,37 +45,37 @@ const VendorLayout = () => {
             defaultSelectedKeys={["1"]}
             items={[
               {
-                key: "1",
+                key: "Dashbord",
                 icon: <UserOutlined />,
                 label: "Dashboard",
               },
               {
-                key: "2",
+                key: "Post Ad",
                 icon: <UserOutlined />,
                 label: "Post Ad",
               },
               {
-                key: "3",
+                key: "My Advert",
                 icon: <VideoCameraOutlined />,
                 label: "My Advert",
               },
               {
-                key: "4",
+                key: "Analytics",
                 icon: <UploadOutlined />,
                 label: "Analytics",
               },
               {
-                key: "5",
+                key: "Orders",
                 icon: <UploadOutlined />,
                 label: "Orders",
               },
               {
-                key: "6",
+                key: "Settings",
                 icon: <UploadOutlined />,
                 label: "Settings",
               },
               {
-                key: "7",
+                key: "Logout",
                 icon: <UploadOutlined />,
                 label: "Logout",
               },

@@ -10,6 +10,7 @@ import { useState } from "react";
 import UserHomePage from "./pages/user/UserHomePage";
 import VendorLayout from "./layouts/VendorLayout";
 import ShopContextProvider from "./context/ShopContextProvider";
+import VendorDashboard from "./layouts/VendorDashboard";
 
 function App() {
   const router = createBrowserRouter([
@@ -32,6 +33,10 @@ function App() {
     {
       path: "/vendor",
       element: <VendorLayout />,
+    },
+    {
+      path: "/vendordashboard",
+      element: <VendorDashboard />,
     },
     {
       path: "/dashboard",

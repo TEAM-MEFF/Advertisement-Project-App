@@ -9,6 +9,7 @@ import Settings from "./pages/dashboard/Settings";
 import { useState } from "react";
 import UserHomePage from "./pages/user/UserHomePage";
 import VendorLayout from "./layouts/VendorLayout";
+import ShopContextProvider from "./context/ShopContextProvider";
 
 function App() {
   const router = createBrowserRouter([
@@ -48,7 +49,11 @@ function App() {
       ],
     },
   ]);
-  return <RouterProvider router={router} />;
+  return (
+    <ShopContextProvider>
+      <RouterProvider router={router} />
+    </ShopContextProvider>
+  );
 }
 
 export default App;

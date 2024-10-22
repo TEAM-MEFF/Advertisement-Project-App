@@ -1,0 +1,3 @@
+NB: The context folder is where we will be managing all the states and everything related to login in the application, using state management tools like 
+- Context API (preInstalled)
+- among others...

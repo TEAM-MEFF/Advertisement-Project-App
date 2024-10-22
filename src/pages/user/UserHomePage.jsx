@@ -6,6 +6,7 @@ import UserSignUp from "../../components/UserSignUp";
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
 import Dashboard from "../../components/Dashboard";
+import SignUp from "../../components/SignUp";
 
 const UserHomePage = () => {
   const [categoriesBarToggle, setCategoriesBarToggle] = useState(false);
@@ -15,16 +16,17 @@ const UserHomePage = () => {
   }, [categoriesBarToggle]);
   return (
     <div>
-      <RootLayout headerText="Home Page Home Page">
+      <RootLayout headerText="Heading Text using the HeaderFormatText">
         <div>
-          <Navbar/>
-          <Dashboard/>
-         <Sidebar/>
-          <UserLogIn/>
+          <Navbar />
+          <Dashboard />
+          <Sidebar />
+          <SignUp />
+          <UserLogIn />
           <br />
-          <UserSignUp/>
+          <UserSignUp />
           <br />
-          <CategoriesSection/>
+          <CategoriesSection />
         </div>
       </RootLayout>
     </div>

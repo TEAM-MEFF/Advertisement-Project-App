@@ -7,8 +7,13 @@ const RootLayout = ({ children, headerText }) => {
   return (
     <div>
       <Navbar />
-      <h1>{headerText}</h1>
-      <div>{children}</div>
+      <div className="flex">
+        <Sidebar />
+        <div >
+          <h1>{headerText}</h1>
+          <div>{children}</div>
+        </div>
+      </div>
       <Footer />
     </div>
   );

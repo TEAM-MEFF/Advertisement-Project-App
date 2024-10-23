@@ -27,7 +27,10 @@ const ProductFetch = () => {
                     alt="product-image"
                     className="w-[180px] h-[180px] mx-auto "
                   />
-                  <span className="absolute top-2 right-2 px-2 py-1  bg-yellow-200  text-yellow-700">
+                  <span className="absolute top-2 right-2 px-2 pt-1  bg-gray-200  text-black rounded-full">
+                    <IonIcon name="heart-outline" className="text-2xl md:text-3xl text-the" />
+                  </span>
+                  <span className="absolute bottom-2 right-2 px-2 py-1  bg-yellow-200  text-yellow-700">
                     -{product.discount_percentage}%
                   </span>
                 </div>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="flex flex-col items-start justify-around left-0 bg-blue-200 w-1/5 min-h-96">
+    <div className="flex flex-col items-start justify-around left-0 bg-blue-200 w-1/5 h-screen">
       <div>LOGO</div>
       <div className='flex flex-col transition-all duration-1000 ease-in-out'>
         <Link to="/" className='sm:text-base md:text-lg px-2 py-1 hover:bg-theme-color hover:text-white rounded'>Dashboard</Link>

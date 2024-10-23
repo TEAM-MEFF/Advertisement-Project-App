@@ -3,7 +3,7 @@ import PRODUCTS from "../constants";
 import { ShopContext } from "../context/ShopContextProvider";
 import CartItem from "../components/CartItem";
 import { useNavigate } from "react-router-dom";
-import empty from "../assets/img/Empty.svg"
+import empty from "../assets/img/Empty.svg";
 
 const Cart = () => {
   const {
@@ -21,8 +21,8 @@ const Cart = () => {
   return (
     <div>
       <h2 className="flex justify-center text-2xl p-8">Your Cart Items</h2>
-      <div className="flex justify-center relative">
-        <div className="cart-items ">
+      <div className="flex justify-center">
+        <div className="cart-items w-[1250px]">
           {PRODUCTS.map((product) => {
             // display only products in the products array and is added to cart...
             // thus when the "setCartItems" has a value > 0 for a product...
@@ -31,24 +31,23 @@ const Cart = () => {
               return (
                 <div>
                   {/* <CartItem data={product} /> */}
-                  <div className="flex gap-5 border-2 rounded-2xl shadow-sm w-2/3 h-[200px] mx-auto m-5 p-5 hover:scale-105 duration-300">
+                  <div className="flex gap-5 border-2 rounded-2xl shadow-sm w-2/3 h-[150px] mx-auto m-5 p-5 hover:scale-105 duration-300">
                     <img
                       src={product.images[0]}
                       alt="productImage"
-                      className="h-[150px] w-[200px]"
+                      className="h-[120px] w-[120px]"
                     />
-                    <div className="flex flex-col items-center justify-center gap-5">
-                      <p className="font-semibold text-theme-color text-2xl ">
+                    <div className="flex flex-col items-center justify-center gap-3">
+                      <p className="font-normal text-theme-color text-xl ">
                         {product.title}
                       </p>
-                      <p className="font-semibold text-2xl">
+                      <p className="font-normal text-xl">
                         GH₵{product.current_price}.00
                       </p>
                       <div className="flex">
                         <button
                           onClick={() => removeFromCart(product.id)}
-                          className="border-2 "
-                        >
+                         className="text-xl border-2 rounded-full px-2">
                           -
                         </button>
                         <input
@@ -59,11 +58,11 @@ const Cart = () => {
                               product.id
                             )
                           }
-                          className="border-2 border-black w-10"
+                          className="w-5 text-center"
                         />
                         <button
                           onClick={() => addToCart(product.id)}
-                          className="border-2"
+                          className="text-xl border-2 rounded-full px-1"
                         >
                           +
                         </button>
@@ -76,7 +75,7 @@ const Cart = () => {
           })}
         </div>
         {totalAmount > 0 ? (
-          <div className=" sticky top-36 right-5">
+          <div className="mr-16">
             <div className="summary w-[250px] bg-slate-500 p-5 rounded-lg">
               <h2 className="font-bold text-3xl mb-5">Summary</h2>
               <div className="sum-total flex items-center justify-between uppercase font-semibold mb-2">
@@ -103,10 +102,10 @@ const Cart = () => {
           </div>
         ) : (
           <div>
-            <img src={empty} alt="" className="size-72"/>
-          <h1 className="flex text-2xl font-semibold justify-center items-center p">
-            Your Cart is Empty
-          </h1>
+            <img src={empty} alt="" className="size-72" />
+            <h1 className="flex text-2xl font-semibold justify-center items-center p">
+              Your Cart is Empty
+            </h1>
           </div>
         )}
       </div>

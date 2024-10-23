@@ -12,6 +12,9 @@ import VendorLayout from "./layouts/VendorLayout";
 import ShopContextProvider from "./context/ShopContextProvider";
 import VendorDashboard from "./components/VendorDashboard";
 import VendorDashboardd from "./layouts/VendorDashboardd";
+import CartPage from "./pages/CartPage";
+import SignUp from "./components/SignUp";
+import Login from "./components/Login";
 
 function App() {
   const router = createBrowserRouter([
@@ -34,6 +37,18 @@ function App() {
     {
       path: "/vendor",
       element: <VendorLayout />,
+    },
+    {
+      path: "/cart",
+      element: <CartPage />,
+    },
+    {
+      path: "/sign-up",
+      element: <SignUp />,
+    },
+    {
+      path: "/login",
+      element: <Login />,
     },
     {
       path: "/vendordash",

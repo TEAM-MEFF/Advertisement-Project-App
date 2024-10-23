@@ -1,5 +1,7 @@
 import React from "react";
 import RootLayout from "../layouts/RootLayout";
+import LogIn from "../components/Login";
+import SignUp from "../components/SignUp";
 
 const About = () => {
   return (
@@ -11,6 +13,8 @@ const About = () => {
           magni corporis consequatur reiciendis veritatis, voluptate veniam illo
           perferendis assumenda.
         </p>
+        <SignUp />
+        <LogIn />
       </RootLayout>
     </div>
   );

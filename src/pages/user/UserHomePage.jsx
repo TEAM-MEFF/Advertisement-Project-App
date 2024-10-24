@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import RootLayout from "../../layouts/RootLayout";
 import CategoriesSection from "./components/CategoriesSection";
 import Sidebar from "../../components/Sidebar";
-import Dashboard from "../../components/Dashboard";
+import Dashboard from "../dashboard/Dashboard";
 import SignUp from "../../components/SignUp";
 
 const UserHomePage = () => {

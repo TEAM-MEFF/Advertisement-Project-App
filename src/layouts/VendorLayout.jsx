@@ -1,6 +1,7 @@
 import { AlertCircle, LogIn, Shield, Zap } from "lucide-react";
 import React from "react";
 import { useToast } from "../toast/ToastService"; // Use your custom toast hook
+import ApiAddProduct from "../components/ApiAddProduct";
 
 const Appp = () => {
   const toast = useToast();
@@ -69,6 +70,8 @@ const Appp = () => {
           <Zap /> Activate
         </button>
       </div>
+
+      <ApiAddProduct />
     </div>
   );
 };

@@ -25,13 +25,13 @@ const NavbarResponsive = () => {
         <SearchBox />
         <div className="flex items-center gap-2">
           <Link
-            to="/vendordash"
-            className=" flex gap-2 border-2 border-theme-color rounded-full p-1 px-2"
+            to="/sign-up"
+            className=" flex gap-2 border-2 border-theme-color rounded-full md:px-2 px-1 md:w-40 lg:h-10 "
           >
-            <span className=" text-lg font-medium">Start Selling</span>
+            <span className=" md:text-lg text-sm font-medium">Start Selling</span>
             <IonIcon
               name="person-outline"
-              className="text-4xl md:text-xl text-theme-color pt-1"
+              className=" text-xl text-theme-color pt-1"
             />
           </Link>
           <Link to="/cart">

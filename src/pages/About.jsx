@@ -24,7 +24,6 @@ const About = () => {
       {/* </RootLayout> */}
       {/* <ProductPost /> */}
       {/* <ApiAddProduct /> */}
-      <ApiAddProduct />
 
       {/* <EditProduct /> */}
     </div>

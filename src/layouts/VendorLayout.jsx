@@ -40,6 +40,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { AlertCircle } from "lucide-react";
 
 const { Header, Sider, Content } = Layout;
 
@@ -149,6 +150,11 @@ const VendorLayout = () => {
           </Content>
         </Layout>
       </Layout>
+      <div >
+        <button>
+          <AlertCircle/> Fail
+        </button>
+      </div>
     </div>
   );
 };

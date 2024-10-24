@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import DashboardLayout from "./layouts/DashboardLayout";
 import RootLayout from "./layouts/RootLayout";
-import Overview from "./pages/dashboard/Overview";
+import Overview from "./pages/dashboard/SalesByCategory";
 import Settings from "./pages/dashboard/Settings";
 import { useState } from "react";
 import UserHomePage from "./pages/user/UserHomePage";

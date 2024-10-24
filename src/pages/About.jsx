@@ -4,6 +4,8 @@ import ApiAddProduct from "../components/ApiAddProduct";
 import EditProduct from "../components/EditProduct";
 import Login from "../components/Login";
 import SignUp from "../components/SignUp";
+import HeroCarousel from "../components/HeroCarousel";
+import Dashboard from "./dashboard/Dashboard";
 
 const About = () => {
   return (
@@ -15,12 +17,15 @@ const About = () => {
         magni corporis consequatur reiciendis veritatis, voluptate veniam illo
         perferendis assumenda.
       </p> */}
-      <SignUp />
+      {/* <HeroCarousel /> */}
+      <Dashboard />
+      {/* <SignUp /> */}
       <Login />
       {/* </RootLayout> */}
       {/* <ProductPost /> */}
+      {/* <ApiAddProduct /> */}
       <ApiAddProduct />
-      <ApiAddProduct />
+
       {/* <EditProduct /> */}
     </div>
   );

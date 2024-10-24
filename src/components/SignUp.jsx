@@ -1,39 +1,35 @@
 import React, { useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import IonIcon from "@reacticons/ionicons";
 import { apiSignup } from "../Services/auth";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [selectedOption, setSelectedOption] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
-  const navigate = useNavigate();
-  const [loading, setLoading] = useState(false);
-
   const handleSubmit = async (event) => {
-    // async and await goes with Try-Catch...
     event.preventDefault();
     try {
       setLoading(true);
-      // preparing data to be sent to backend...
-      const formData = new FormData(event.target); // getting data from the form
+
+      // Prepare form data
+      const formData = new FormData(event.target);
       const avatar = formData.get("avatar");
       const userName = formData.get("userName");
       const email = formData.get("email");
       const password = formData.get("password");
-      // const confirmPass = formData.get("confirmPass");
       const phone = formData.get("phone");
       const role = formData.get("role");
       const businessName = formData.get("businessName");
 
-      // checking if passwords match...
-      // if (password !== confirmPass) {
-      //     return;
-      // }
-
-      console.log("userName", userName);
+      // Payload for the API
       const payload = {
         businessName,
         email,
@@ -43,95 +39,88 @@ const SignUp = () => {
         role: "vendor",
       };
 
+      // Call the API to sign up
       const response = await apiSignup(payload);
       console.log(response.data);
-      navigate("/vendordash");
+
+      // If sign-up is successful, show success toast and navigate to login
+      toast.success("You've signed up successfully!");
+
+      setTimeout(() => {
+        navigate("/login"); // Navigate to login page after the toast
+      }, 2000);
     } catch (error) {
       console.log(error);
+      toast.error("Sign-up failed. Please try again.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className=" signin flex justify-center items-center h-screen bg-contain  ">
+    <div className="signin flex justify-center items-center h-screen bg-contain">
       <form
         onSubmit={handleSubmit}
         className="bg-white p-6 rounded-2xl shadow-xl max-w-md w-full"
       >
         <p className="text-2xl font-semibold text-[#0E345A] relative pl-10 mb-8">
-          SignUp (auth)
+          SignUp
           <span className="mt-[4px] absolute left-[4px] top-[5px] w-4 h-4 bg-[#0E345A] rounded-full"></span>
-          <span className=" mt-[5px] absolute left-0 top-0 w-6 h-6 animate-pulse bg-[#0E345A] rounded-full opacity-10"></span>
+          <span className="mt-[5px] absolute left-0 top-0 w-6 h-6 animate-pulse bg-[#0E345A] rounded-full opacity-10"></span>
         </p>
         <div className="space-y-2">
           <div>
-            <label name="avatar" className="w-full relative"></label>
             <input
               required
               type="file"
               name="avatar"
-              placeholder="Enter your User Name..."
+              placeholder="Upload your avatar"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
             />
           </div>
           <div>
-            <label name="userName" className="w-full relative"></label>
             <input
               required
               type="text"
               name="userName"
-              placeholder="Enter your User Name..."
+              placeholder="Enter your User Name"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
             />
           </div>
           <div>
-            <label name="email" className="w-full relative "></label>
             <input
               required
               type="email"
               name="email"
-              placeholder="Enter your email..."
+              placeholder="Enter your email"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
             />
           </div>
           <div>
-            <label name="password" className="w-full relative"></label>
             <input
               required
               type="password"
               name="password"
-              placeholder="Enter a valid password..."
+              placeholder="Enter your password"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 mb-1"
             />
           </div>
-          {/* <label className="w-full relative">
-                        <input
-                            required
-                            type="password"
-                            name="confirmPass"
-                            placeholder="Confirm password..."
-                            className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
-                        />
-                    </label> */}
           <div>
-            <label name="phone" className="w-full relative"></label>
             <input
               required
               type="number"
               name="phone"
-              placeholder="Enter your number..."
+              placeholder="Enter your phone number"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
             />
           </div>
           <div>
-            <label className="w-full relative"></label>
             <select
+              required
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
-              id="dropdown"
               value={selectedOption}
               onChange={handleSelectChange}
-              placeholder="Role..."
+              name="role"
             >
               <option value="">--Role--</option>
               <option value="user">User</option>
@@ -139,12 +128,11 @@ const SignUp = () => {
             </select>
           </div>
           <div>
-            <label className="w-full relative"></label>
             <input
               required
               type="text"
               name="businessName"
-              placeholder="Enter Business Name..."
+              placeholder="Enter Business Name"
               className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-600 my-1"
             />
           </div>
@@ -159,7 +147,7 @@ const SignUp = () => {
           <p className="p line mb-3 items-center">or SignUp With</p>
           <div className="flex gap-5">
             <button className="btn google">
-              <IonIcon name="logo-google" className="text-2xl " />
+              <IonIcon name="logo-google" className="text-2xl" />
               Google
             </button>
             <button className="btn apple">
@@ -178,6 +166,7 @@ const SignUp = () => {
           </Link>
         </p>
       </form>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 // src/components/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { apiGetOneProduct } from "../Services/products"; // Import your API function
+
 import axios from "axios";
 
 const ProductDetails = () => {
@@ -10,7 +12,7 @@ const ProductDetails = () => {
 
     const getProductById = async (id) => {
         try {
-            const response = await axios.get(`/api/products/${id}`); // Update with your backend API route
+            const response = await apiGetOneProduct(id); // Fetch the product by ID using your API function
             setProduct(response.data);
             setLoading(false);
         } catch (error) {

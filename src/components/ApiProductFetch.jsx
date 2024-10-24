@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { apiGetProducts } from "../Services/products";
 import axios from "axios";
 import ApiGetProduct from "./ApiGetProduct";
+import { Link } from "react-router-dom";
 
 const ApiProductFetch = () => {
   const [apiProducts, setApiProducts] = useState([]);
@@ -27,17 +28,19 @@ const ApiProductFetch = () => {
       <div className="entireSpace flex flex-wrap justify-center">
         {apiProducts.map((ad, index) => {
           return (
-            <ApiGetProduct
-              key={ad.id}
-              images={ad.images}
-              productName={ad.productName}
-              category={ad.category}
-              price={ad.price}
-              description={ad.description}
-              discountPercentage={ad.discountPercentage}
-              discountedPrice={ad.discountedPrice}
-              avatar={ad.avatar}
-            />
+            <Link to={`/product/${ad.id}`} key={ad.id}> {/* Wrap each product in a link */}
+              <ApiGetProduct
+                key={ad.id}
+                images={ad.images}
+                productName={ad.productName}
+                category={ad.category}
+                price={ad.price}
+                description={ad.description}
+                discountPercentage={ad.discountPercentage}
+                discountedPrice={ad.discountedPrice}
+                avatar={ad.avatar}
+              />
+            </Link>
           );
         })}
       </div>

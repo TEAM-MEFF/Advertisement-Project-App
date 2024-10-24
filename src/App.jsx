@@ -15,6 +15,8 @@ import VendorDashboardd from "./layouts/VendorDashboardd";
 import CartPage from "./pages/CartPage";
 import SignUp from "./components/SignUp";
 import Login from "./components/Login";
+import ProductDetails from "./components/ProductDetails";
+import ProductDetailsMain from "./components/ProductDetailsMain";
 
 function App() {
   const router = createBrowserRouter([
@@ -49,6 +51,10 @@ function App() {
     {
       path: "/login",
       element: <Login />,
+    },
+    {
+      path: "/products/:id",
+      element: <ProductDetailsMain />,
     },
     {
       path: "/vendordash",

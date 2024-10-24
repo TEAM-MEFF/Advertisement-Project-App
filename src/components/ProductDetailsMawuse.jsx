@@ -1,27 +1,44 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { apiGetOneProduct } from '../Services/products';
+import { useParams, useNavigate } from 'react-router-dom';
+import { apiGetOneProduct, apiDeleteProduct } from '../Services/products';
 import { Calendar, Phone, Mail, Store, Tag, Percent } from 'lucide-react';
 
 const ProductDetailsMawuse = () => {
+    const params = useParams();
+    const navigate = useNavigate();
     const [product, setProduct] = useState({});
     const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const productID = params.id;
 
     const fetchProduct = async () => {
         try {
-            const response = await apiGetOneProduct(id);
+            const response = await apiGetOneProduct(productID);
             setProduct(response.data);
             setLoading(false);
         } catch (error) {
             console.error('Error fetching product:', error);
             setLoading(false);
+            alert("Failed to load product. Please try again later.");
+        }
+    };
+
+    const handleDelete = async () => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this product?");
+        if (confirmDelete) {
+            try {
+                await apiDeleteProduct(productID); // Call API to delete the product
+                alert("Product deleted successfully.");
+                navigate('/products'); // Redirect to product list after deletion
+            } catch (error) {
+                console.error('Error deleting product:', error);
+                alert("Failed to delete product. Please try again.");
+            }
         }
     };
 
     useEffect(() => {
         fetchProduct();
-    }, [id]);
+    }, [productID]);
 
     if (loading) {
         return (
@@ -53,7 +70,7 @@ const ProductDetailsMawuse = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
                     <img
-                        src={product.images || "/api/placeholder/400/400"}
+                        src={`https://savefiles.org/${product.images}?shareable_link=440`}
                         alt={product.productName}
                         className="w-full h-96 object-cover rounded-lg shadow-lg"
                     />
@@ -75,9 +92,25 @@ const ProductDetailsMawuse = () => {
                         <h2 className="font-semibold mb-2">Description</h2>
                         <p className="text-gray-700">{product.description}</p>
                     </div>
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                        <h2 className="font-semibold mb-2">Category</h2>
-                        <p className="text-gray-700">{product.category}</p>
+                    <div className='flex gap-5'>
+                        <div className="bg-gray-50 p-4 rounded-lg w-1/2">
+                            <h2 className="font-semibold mb-2">Category</h2>
+                            <p className="text-gray-700">{product.category}</p>
+                        </div>
+                        <div className="flex flex-col gap-5">
+                            <button
+                                onClick={() => navigate(`/products/edit/${productID}`)} // Redirect to edit page
+                                className="bg-blue-500 text-white w-32 py-2 rounded-lg"
+                            >
+                                Edit
+                            </button>
+                            <button
+                                onClick={handleDelete} // Call delete function
+                                className="bg-red-500 text-white w-32 py-2 rounded-lg"
+                            >
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -125,6 +158,8 @@ const ProductDetailsMawuse = () => {
                     <span>Last updated {formatDate(product.updatedAt)}</span>
                 </div>
             </div>
+
+
         </div>
     );
 };

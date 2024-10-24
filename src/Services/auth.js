@@ -8,3 +8,8 @@ export const apiSignup = async (payload) => { //payload is an object containing 
 export const apiLogin = async (payload) => {
     return apiClient.post("/users/login", payload);
 }
+
+export const apiProfile = async () => {
+    return apiClient.post("/users/me");
+}
+

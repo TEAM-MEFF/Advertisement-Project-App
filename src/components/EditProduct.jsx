@@ -4,7 +4,9 @@ import { apiGetOneProduct } from '../Services/products';
 
 const EditProduct = () => {
     const { id } = useParams();
+
     const navigate = useNavigate();
+
     const categories = ['furniture', 'clothing', 'appliances', 'groceries', 'electronics'];
 
     const [formData, setFormData] = useState({
@@ -166,6 +168,7 @@ const EditProduct = () => {
                             <input
                                 type="text"
                                 name="productName"
+                                // defaultValue={"Enter Product Name"}
                                 value={formData.productName}
                                 onChange={handleInputChange}
                                 required

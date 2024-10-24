@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import IonIcon from "@reacticons/ionicons";
-import { apiLogin } from "../Services/auth";
+import { apiLogin, apiProfile } from "../Services/auth";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -28,6 +28,8 @@ const Login = () => {
     navigate("/vendordash");
     if (response.status === 201) {
       localStorage.setItem("token", response.data.accessToken);
+      const profileResponse = await apiProfile();
+      console.log(profileResponse.data);
     }
   };
 

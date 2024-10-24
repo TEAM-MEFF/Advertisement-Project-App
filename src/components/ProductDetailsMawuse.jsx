@@ -3,33 +3,33 @@ import { useParams } from 'react-router-dom';
 import { apiGetOneProduct } from '../Services/products';
 import { Calendar, Phone, Mail, Store, Tag, Percent } from 'lucide-react';
 
-const ProductDetailsMain = () => {
+const ProductDetailsMawuse = () => {
     const [product, setProduct] = useState({});
-    // const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(true);
     const { id } = useParams();
 
     const fetchProduct = async () => {
         try {
             const response = await apiGetOneProduct(id);
             setProduct(response.data);
-            // setLoading(false);
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching product:', error);
-            // setLoading(false);
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [id]);
 
-    // if (loading) {
-    //     return (
-    //         <div className="flex justify-center items-center min-h-screen">
-    //             <div className="text-xl">Loading...</div>
-    //         </div>
-    //     );
-    // }
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="text-xl">Loading...</div>
+            </div>
+        );
+    }
 
     if (!product) {
         return (
@@ -83,7 +83,7 @@ const ProductDetailsMain = () => {
             </div>
 
             {/* Seller Information */}
-            {/* <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
+            <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
                 <h2 className="text-2xl font-bold mb-6">Seller Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex items-center space-x-4">
@@ -116,7 +116,7 @@ const ProductDetailsMain = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             {/* Product Timeline */}
             <div className="mt-8 text-sm text-gray-500">
@@ -129,4 +129,4 @@ const ProductDetailsMain = () => {
     );
 };
 
-export default ProductDetailsMain;
+export default ProductDetailsMawuse;

@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import Footer from "../components/Footer";
+import NavbarResponsive from "../components/NavbarResponsive";
 
 const RootLayout = ({ children, headerText }) => {
   return (
     <div>
-      <Navbar />
+      <NavbarResponsive />
       <div className="flex">
         <Sidebar />
         <div >

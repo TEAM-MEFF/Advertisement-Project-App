@@ -2,6 +2,8 @@ import React from "react";
 import RootLayout from "../layouts/RootLayout";
 import ApiAddProduct from "../components/ApiAddProduct";
 import EditProduct from "../components/EditProduct";
+import Login from "../components/Login";
+import SignUp from "../components/SignUp";
 
 const About = () => {
   return (
@@ -13,13 +15,13 @@ const About = () => {
         magni corporis consequatur reiciendis veritatis, voluptate veniam illo
         perferendis assumenda.
       </p> */}
-      {/* <SignUp /> */}
-      {/* <LogIn /> */}
+      <SignUp />
+      <Login />
       {/* </RootLayout> */}
       {/* <ProductPost /> */}
       <ApiAddProduct />
       <ApiAddProduct />
-      <EditProduct />
+      {/* <EditProduct /> */}
     </div>
   );
 };

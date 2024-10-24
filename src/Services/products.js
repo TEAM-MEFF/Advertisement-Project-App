@@ -1,18 +1,21 @@
 import { apiClient } from "./config";
 
 
-export const apiGetProducts = () =>
-    apiClient.get("/products");
+export const apiGetProducts = (filter) =>
+    apiClient.get(`/products?filter=${JSON.stringify(filter)}`);
 
 export const apiAddProducts = async (payload) =>
     apiClient.post("/products/", payload);
 
-
 export const apiGetOneProduct = async (id) =>
     apiClient.get(`products/${id}`);
 
-export const apiDeleteProduct = async (id) =>
-    apiClient.delete(`products/${id}`);
+// export const apiDeleteProduct = async (id) =>
+//     apiClient.delete(`products/${id}`);
+
+export const apiDeleteProduct = async (productID) => {
+    return await axios.delete(`https://advertisement-project-api.onrender.com/products/${productID}`);
+};
 
 // export const apiGetOneProduct = async (slug) => {
 //     return apiClient.get(`products/${slug}`);

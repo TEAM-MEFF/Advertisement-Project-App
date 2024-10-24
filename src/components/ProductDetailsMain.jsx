@@ -4,32 +4,35 @@ import { apiGetOneProduct } from '../Services/products';
 import { Calendar, Phone, Mail, Store, Tag, Percent } from 'lucide-react';
 
 const ProductDetailsMain = () => {
+    const params = useParams();
     const [product, setProduct] = useState({});
-    // const [loading, setLoading] = useState(true);
-    const { id } = useParams();
+    const [loading, setLoading] = useState(true);
+    const productID = params.id;
 
     const fetchProduct = async () => {
         try {
-            const response = await apiGetOneProduct(id);
+            const response = await apiGetOneProduct(productID);
             setProduct(response.data);
-            // setLoading(false);
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching product:', error);
-            // setLoading(false);
+            setLoading(false);
+            // Display an error message for the user
+            alert("Failed to load product. Please try again later.");
         }
     };
 
     useEffect(() => {
         fetchProduct();
-    }, []);
+    }, [productID]);
 
-    // if (loading) {
-    //     return (
-    //         <div className="flex justify-center items-center min-h-screen">
-    //             <div className="text-xl">Loading...</div>
-    //         </div>
-    //     );
-    // }
+    if (loading) {
+        return (
+            <div className="flex justify-center items-center min-h-screen">
+                <div className="text-xl">Loading...</div>
+            </div>
+        );
+    }
 
     if (!product) {
         return (
@@ -53,7 +56,7 @@ const ProductDetailsMain = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                 <div className="space-y-4">
                     <img
-                        src={product.images || "/api/placeholder/400/400"}
+                        src={`https://savefiles.org/${product.images}?shareable_link=440`}
                         alt={product.productName}
                         className="w-full h-96 object-cover rounded-lg shadow-lg"
                     />
@@ -83,12 +86,13 @@ const ProductDetailsMain = () => {
             </div>
 
             {/* Seller Information */}
-            {/* <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
+            <div className="bg-white rounded-lg shadow-lg p-6 mt-8">
                 <h2 className="text-2xl font-bold mb-6">Seller Information</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex items-center space-x-4">
                         <img
                             src={product.user.avatar || "/api/placeholder/64/64"}
+                            // src={`https://savefiles.org/${product.user.avatar}?shareable_link=440`}
                             alt={product.user.userName}
                             className="w-16 h-16 rounded-full"
                         />
@@ -116,7 +120,7 @@ const ProductDetailsMain = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
 
             {/* Product Timeline */}
             <div className="mt-8 text-sm text-gray-500">

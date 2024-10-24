@@ -5,11 +5,12 @@ import ApiGetProduct from "./ApiGetProduct";
 import { Link } from "react-router-dom";
 
 const ApiProductFetch = () => {
+  const [inputValue, setInputValue] = useState('');
   const [apiProducts, setApiProducts] = useState([]);
   const [loading, setLoading] = useState(false)
 
   const getProducts = async () => {
-    const response = await apiGetProducts();
+    const response = await apiGetProducts({ "productName": { "$regex": inputValue } });
 
     setApiProducts(response.data);
     console.log(response.data);
@@ -17,19 +18,20 @@ const ApiProductFetch = () => {
 
   useEffect(() => {
     getProducts();
-  }, []);
+  }, [inputValue]);
 
   if (loading)
     return <div>Loading...</div>
 
   return (
     <div>
+      <input className="border-2" type="text" value={inputValue} onChange={e => setInputValue(e.target.value)} />
       <h1 className="text-3xl text-theme-color font-bold p-10">ALL PRODUCTS</h1>
       <div className="entireSpace flex flex-wrap justify-center">
         {apiProducts.map((ad, index) => {
           console.log(`${index}: ${ad.images}`)
           return (
-            <Link to={`/product/${ad.id}`}> {/* Wrap each product in a link */}
+            <Link to={`/product/${ad.id}`}>
               <ApiGetProduct
                 key={ad.id}
                 images={ad.images}

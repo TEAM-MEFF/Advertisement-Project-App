@@ -17,6 +17,8 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import ProductDetails from "./components/ProductDetails";
 import ProductDetailsMain from "./components/ProductDetailsMain";
+import EditProduct from "./components/EditProduct";
+import AddProduct from "./components/ApiAddProduct";
 
 function App() {
   const router = createBrowserRouter([
@@ -79,6 +81,29 @@ function App() {
         },
       ],
     },
+    // {
+    //   path: "/ven",
+    //   element: <DashboardLayout />,
+    //   children: [
+    //     {
+    //       index: true,
+    //       // path: "overview",
+    //       element: <Overview />,
+    //     },
+    //     {
+    //       path: "/product",
+    //       element: <ProductDetailsMain />
+    //     },
+    //     {
+    //       path: "/addProduct",
+    //       element: <AddProduct />
+    //     },
+    //     {
+    //       path: "/editAd/:id",
+    //       element: <EditProduct />
+    //     },
+    //   ],
+    // },
   ]);
   return (
     <ShopContextProvider>

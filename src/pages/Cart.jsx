@@ -101,9 +101,9 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <div>
+          <div className="w-[1700px]">
             <img src={empty} alt="" className="size-72" />
-            <h1 className="flex text-2xl font-semibold justify-center items-center p">
+            <h1 className="flex text-2xl font-semibold justify-center items-center p-2 mr-[500px]">
               Your Cart is Empty
             </h1>
           </div>

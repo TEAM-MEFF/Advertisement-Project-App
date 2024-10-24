@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { apiAddProducts } from '../Services/products';
 
-const AddProduct = () => {
+const ApiAddProduct = () => {
     // Predefined categories from the documentation
     const categories = ['furniture', 'clothing', 'appliances', 'groceries', 'electronics'];
 
@@ -271,4 +271,4 @@ const AddProduct = () => {
     );
 };
 
-export default AddProduct;
+export default ApiAddProduct;

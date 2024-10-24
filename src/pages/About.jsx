@@ -1,10 +1,7 @@
 import React from "react";
 import RootLayout from "../layouts/RootLayout";
-import LogIn from "../components/Login";
-import SignUp from "../components/SignUp";
-import ProductPost from "../components/ProductPost";
-import ApiAddProduct from "../components/ApiAddProducts";
-import AdddProduct from "../components/AdddProduct";
+import ApiAddProduct from "../components/ApiAddProduct";
+import EditProduct from "../components/EditProduct";
 
 const About = () => {
   return (
@@ -21,7 +18,8 @@ const About = () => {
       {/* </RootLayout> */}
       {/* <ProductPost /> */}
       <ApiAddProduct />
-      <AdddProduct />
+      <ApiAddProduct />
+      <EditProduct />
     </div>
   );
 };

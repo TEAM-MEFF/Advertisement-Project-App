@@ -27,8 +27,9 @@ const ApiProductFetch = () => {
       <h1 className="text-3xl text-theme-color font-bold p-10">ALL PRODUCTS</h1>
       <div className="entireSpace flex flex-wrap justify-center">
         {apiProducts.map((ad, index) => {
+          console.log(`${index}: ${ad.images}`)
           return (
-            <Link to={`/product/${ad.id}`} key={ad.id}> {/* Wrap each product in a link */}
+            <Link to={`/product/${ad.id}`}> {/* Wrap each product in a link */}
               <ApiGetProduct
                 key={ad.id}
                 images={ad.images}

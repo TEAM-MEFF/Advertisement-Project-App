@@ -48,19 +48,33 @@ const ApiGetProduct = ({
 
           <p>{avatar}</p>
           <p>{description}</p>
-          <button
-            className=" absolute bottom-2 right-2 px-2 pb-1 bg-theme-color text-white rounded-md"
-            onClick={() => addToCart(key)}
-          >
-            <span className="text-sm">Add to</span>
-            <div className="flex justify-center items-center gap-1">
-              <span className="text-sm">
-                {" "}
-                Cart {cartItemsAmount > 0 && <> ({cartItems})</>}
-              </span>
-              {/* <IonIcon name="add-circle-outline" className="" /> */}
-            </div>
-          </button>
+          <div>
+            <button
+              className=" absolute bottom-2 right-2 px-2 pb-1 bg-theme-color text-white rounded-md"
+              onClick={() => addToCart(key)}
+            >
+              <span className="text-sm">Add to</span>
+              <div className="flex justify-center items-center gap-1">
+                <span className="text-sm">
+                  {" "}
+                  Cart {cartItemsAmount > 0 && <> ({cartItems})</>}
+                </span>
+                {/* <IonIcon name="add-circle-outline" className="" /> */}
+              </div>
+            </button>
+            <button
+              className=" absolute bottom-2 right-2 px-2 pb-1 bg-gray text-black rounded-md"
+            >
+              <span className="text-sm">Add to</span>
+              <div className="flex justify-center items-center gap-1">
+                <span className="text-sm">
+                  {" "}
+                  Cart {cartItemsAmount > 0 && <> ({cartItems})</>}
+                </span>
+                {/* <IonIcon name="add-circle-outline" className="" /> */}
+              </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

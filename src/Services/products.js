@@ -7,8 +7,8 @@ export const apiGetProducts = () =>
 // export const apiGetOneProduct = async (slug) => {
 //     return apiClient.get(`products/${slug}`);
 // }
-export const apiGetOneProduct = async (id) => {
-    return apiClient.get(`/products/${id}`);
+export const apiGetOneProduct = async () => {
+    return apiClient.get('/products/671592d12a8c857f8aafe4d4');
 }
 
 export const apiAddProducts = async (payload) =>

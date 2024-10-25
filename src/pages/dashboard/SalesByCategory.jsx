@@ -13,7 +13,7 @@ class SalesByCategory extends Component {
       exportEnabled: true,
       theme: "dark2", // "light1", "dark1", "dark2"
       title: {
-        text: "Trip Expenses",
+        text: "Sales by Categories",
       },
       data: [
         {
@@ -21,12 +21,12 @@ class SalesByCategory extends Component {
           indexLabel: "{label}: {y}%",
           startAngle: -90,
           dataPoints: [
-            { y: 20, label: "Airfare" },
-            { y: 24, label: "Food & Drinks" },
-            { y: 20, label: "Accomodation" },
-            { y: 14, label: "Transportation" },
-            { y: 12, label: "Activities" },
-            { y: 10, label: "Misc" },
+            { y: 50, label: "Groceries" },
+            { y: 20, label: "Furniture" },
+            { y: 30, label: "Electrical Appliances" },
+            { y: 60, label: "Fashion" },
+            { y: 15, label: "Electronics" },
+            
           ],
         },
       ],

@@ -3,14 +3,14 @@ import IonIcon from "@reacticons/ionicons";
 import PRODUCTS from "../constants";
 import { ShopContext } from "../context/ShopContextProvider";
 import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";  // Ensure the CSS is imported
+import "react-toastify/dist/ReactToastify.css"; // Ensure the CSS is imported
 
 const ProductFetch = () => {
   const { addToCart, cartItems } = useContext(ShopContext);
 
   const handleAddToCart = (productId) => {
     addToCart(productId);
-    toast.success("Item added to cart!");  // Show success toast when item is added to cart
+    toast.success("Item added to cart!"); // Show success toast when item is added to cart
   };
 
   return (
@@ -23,7 +23,7 @@ const ProductFetch = () => {
           return (
             <div
               className="item w-[260px] border-[0.1px] m-3 p-5 hover:shadow-lg hover:scale-105 transition ease-in-out relative"
-              key={index}  // Moved the key here
+              key={index} // Moved the key here
             >
               <div className="hmm text-center items-center space-y-1">
                 <div className="relative">
@@ -32,12 +32,12 @@ const ProductFetch = () => {
                     alt="product-image"
                     className="w-[180px] h-[180px] mx-auto "
                   />
-                  <span className="absolute top-2 right-2 px-2 pt-1 bg-gray-200 text-black rounded-full">
+                  {/* <span className="absolute top-2 right-2 px-2 pt-1 bg-gray-200 text-black rounded-full">
                     <IonIcon
                       name="heart-outline"
                       className="text-2xl md:text-3xl"
                     />
-                  </span>
+                  </span> */}
                   <span className="absolute bottom-2 right-2 px-2 py-1 bg-yellow-200 text-yellow-700">
                     -{product.discount_percentage}%
                   </span>
@@ -57,7 +57,7 @@ const ProductFetch = () => {
               </div>
               <button
                 className="absolute bottom-2 right-2 px-2 pb-1 bg-theme-color text-white rounded-md"
-                onClick={() => handleAddToCart(product.id)}  // Trigger toast on click
+                onClick={() => handleAddToCart(product.id)} // Trigger toast on click
               >
                 <span className="text-sm">Add to</span>
                 <div className="flex justify-center items-center gap-1">

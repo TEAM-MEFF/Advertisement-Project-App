@@ -14,7 +14,7 @@ export const apiEditProduct = async (id, payload) => {
 };
 
 export const apiDeleteProduct = async (productID) => {
-    return await axios.delete(`products/${productID}`);
+    return await apiClient.delete(`/products/${productID}`);
 };
 
 

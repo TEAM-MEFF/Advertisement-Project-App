@@ -99,7 +99,7 @@ const ProductDetailsMawuse = () => {
                         </div>
                         <div className="flex flex-col gap-5">
                             <button
-                                onClick={() => navigate(`/products/edit/${productID}`)} // Redirect to edit page
+                                onClick={() => navigate(`/product/edit/${productID}`)} // Redirect to edit page
                                 className="bg-blue-500 text-white w-32 py-2 rounded-lg"
                             >
                                 Edit

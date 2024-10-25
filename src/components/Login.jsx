@@ -27,7 +27,7 @@ const Login = () => {
         navigate("/vendordashboard");
       }, 2000); // Wait 2 seconds before navigation
 
-      if (response.status === 201) {
+      if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken);
         const profileResponse = await apiProfile();
         console.log(profileResponse.data);

@@ -9,11 +9,15 @@ export const apiAddProducts = async (payload) =>
 export const apiGetOneProduct = async (id) =>
     apiClient.get(`products/${id}`);
 
-
+export const apiEditProduct = async (id, payload) => {
+    return apiClient.patch(`/products/${id}`, payload);
+};
 
 export const apiDeleteProduct = async (productID) => {
-    return await axios.delete(`https://advertisement-project-api.onrender.com/products/${productID}`);
+    return await axios.delete(`products/${productID}`);
 };
+
+
 
 
 // export const apiDeleteProduct = async (id) =>

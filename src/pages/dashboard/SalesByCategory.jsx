@@ -11,7 +11,7 @@ class SalesByCategory extends Component {
     const options = {
       animationEnabled: true,
       exportEnabled: true,
-      theme: "dark2", // "light1", "dark1", "dark2"
+      theme: "light1", // "light1", "dark1", "dark2"
       title: {
         text: "Sales by Categories",
       },
@@ -26,7 +26,7 @@ class SalesByCategory extends Component {
             { y: 30, label: "Electrical Appliances" },
             { y: 60, label: "Fashion" },
             { y: 15, label: "Electronics" },
-            
+
           ],
         },
       ],
@@ -36,7 +36,7 @@ class SalesByCategory extends Component {
       <div>
         <CanvasJSChart
           options={options}
-          /* onRef={ref => this.chart = ref} */
+        /* onRef={ref => this.chart = ref} */
         />
         {/*You can get reference to the chart instance as shown above using onRef. This allows you to access all chart properties and methods*/}
       </div>

@@ -7,7 +7,7 @@ const NavbarResponsive = () => {
 
   return (
 
-    <div className="flex sticky top-0 z-[1] items-center mx-auto justify-between py-2 px-10 bg-slate-200 ">
+    <div className="flex sticky top-0 z-[1] items-center mx-auto justify-between py-2 px-10 bg-blue-200 ">
       <div className="content-center items-center">
         <Link to="/">
           <span className="bg-theme-color text-lg px-3 py-2  text-white font-bold content-center text-center">

@@ -30,11 +30,16 @@ const ProductDetailsMawuse = () => {
                 alert("Product deleted successfully.");
                 navigate('/products'); // Redirect to product list after deletion
             } catch (error) {
-                console.error('Error deleting product:', error);
-                alert("Failed to delete product. Please try again.");
+                if (error.response && error.response.status === 403) {
+                    alert("You do not have permission to delete this product.");
+                } else {
+                    console.error('Error deleting product:', error);
+                    alert("Failed to delete product. Please try again.");
+                }
             }
         }
     };
+
 
     useEffect(() => {
         fetchProduct();
@@ -158,8 +163,6 @@ const ProductDetailsMawuse = () => {
                     <span>Last updated {formatDate(product.updatedAt)}</span>
                 </div>
             </div>
-
-
         </div>
     );
 };

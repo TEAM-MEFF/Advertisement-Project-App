@@ -5,51 +5,74 @@ import { GiTakeMyMoney } from "react-icons/gi";
 
 const BusinessDetails = () => {
   return (
-    <div className="mt-14">
-        <div className="bg-slate-200  p-3 ">
-      <div className="flex p-5 border rounded-lg bg-white mb-3">
-        <div>
-          <IonIcon name="person-outline" className=" text-4xl  m-5 " />
+    <div className="">
+      <div className=" p-2 space-y-2">
+        {/* Card */}
+        <div className="flex p-2 border rounded-lg bg-slate-100 text-gray-400 justify-center items-center md:gap-3 gap-1">
+          <div>
+            <IonIcon name="person-outline" className=" text-3xl " />
+          </div>
+          <div>
+            <h3 className=" text-lg ">
+              <span className="font-bold text-3xl text-black">
+                7.6</span>/10
+            </h3>
+            <p className="text-sm">Customer Satisfaction</p>
+          </div>
         </div>
-        <div>
-          <span className=" flex text-lg">
-            {" "}
-            3<h3 className="font-bold">/5</h3>
-          </span>
-
-          <p>Total</p>
-          <p>Categories</p>
+        {/* Card */}
+        <div className="flex p-2 border rounded-lg bg-slate-100 mb-3 text-gray-400 justify-center items-center md:gap-3 gap-1">
+          <div>
+            <IonIcon name="analytics-outline" className=" text-3xl " />
+          </div>
+          <div>
+            <h3 className=" text-lg ">
+              <span className="font-bold text-3xl text-black">
+                250</span>/clicks
+            </h3>
+            <p className="text-sm">on your recent post</p>
+          </div>
+        </div>
+        {/* Card */}
+        <div className="flex p-2 border rounded-lg bg-slate-100 mb-3 text-gray-400 justify-center items-center md:gap-3 gap-1">
+          <div>
+            <IonIcon name="eye-outline" className=" text-3xl " />
+          </div>
+          <div>
+            <h3 className=" text-lg ">
+              <span className="font-bold text-3xl text-black">
+                450</span>{" "}views
+            </h3>
+            <p className="text-sm"> on your latest listing</p>
+          </div>
+        </div>
+        {/* Card */}
+        <div className="flex p-2 border rounded-lg bg-slate-100 mb-3 text-gray-400 justify-center items-center md:gap-3 gap-1">
+          <div>
+            <GiTakeMyMoney className=" text-5xl" />
+          </div>
+          <div>
+            <h3 className=" text-lg ">
+              <span className="font-bold text-3xl text-black">
+                ₵1,200</span>{" "}
+            </h3>
+            <p className="text-sm">total sales this month</p>
+          </div>
+        </div>
+        {/* Card */}
+        <div className="flex p-2 border rounded-lg bg-slate-100 mb-3 text-gray-400 justify-center items-center md:gap-3 gap-1">
+          <div>
+            <CiDeliveryTruck className=" text-5xl" />
+          </div>
+          <div>
+            <h3 className=" text-lg ">
+              <span className="font-bold text-3xl text-black">
+                95</span>%
+            </h3>
+            <p className="text-sm">successful orders</p>
+          </div>
         </div>
       </div>
-      <div className="flex p-5 border rounded-lg bg-white mb-3">
-        <div>
-        <GiTakeMyMoney className=" text-5xl  m-5 "/>
-        </div>
-        <div>
-          <span className=" flex text-lg">
-            {" "}
-            200<h3 className="font-bold">/300</h3>
-          </span>
-
-          <p>Number of</p>
-          <p>Product Sold</p>
-        </div>
-      </div>
-      <div className="flex p-5 border rounded-lg bg-white">
-        <div>
-        <CiDeliveryTruck  className=" text-5xl  m-5 "/>
-        </div>
-        <div>
-          <span className=" flex text-lg">
-            {" "}
-            200<h3 className="font-bold">/250</h3>
-          </span>
-
-          <p>Weekly</p>
-          <p>Delivery</p>
-        </div>
-      </div>
-    </div>
     </div>
   );
 };

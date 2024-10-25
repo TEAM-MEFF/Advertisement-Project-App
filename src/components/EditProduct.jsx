@@ -23,6 +23,7 @@ const EditProduct = () => {
     const [error, setError] = useState('');
     const [initialLoad, setInitialLoad] = useState(true);
 
+
     const fetchProduct = async () => {
         try {
             const response = await apiGetOneProduct(id);
@@ -80,6 +81,7 @@ const EditProduct = () => {
         setMessage('');
         setError('');
 
+
         try {
             const baseFormData = {
                 productName: formData.productName,
@@ -88,32 +90,30 @@ const EditProduct = () => {
                 price: formData.price,
                 ...(formData.discountPrice && { discountPrice: formData.discountPrice }),
                 ...(formData.discountPercentage && { discountPercentage: formData.discountPercentage })
+
             };
+
+            console.log('Payload being sent:', baseFormData);  // Log data before sending
 
             // If new images are selected
             if (images.length > 0) {
-                for (let i = 0; i < images.length; i++) {
-                    const productData = new FormData();
+                const productData = new FormData();
+                Object.keys(baseFormData).forEach(key => {
+                    productData.append(key, baseFormData[key]);
+                });
+                images.forEach(image => {
+                    productData.append('images', image);  // Append images one by one
+                });
 
-                    Object.keys(baseFormData).forEach(key => {
-                        productData.append(key, baseFormData[key]);
-                    });
-
-                    productData.append('images', images[i]);
-
-                    // Use your update API endpoint here
-                    await fetch(`/products/${id}`, {
-                        method: 'PUT',
-                        body: productData
-                    });
-                }
+                // Use your update API endpoint here
+                await fetch(`/products/${id}`, {
+                    method: 'PATCH',
+                    body: productData,  // No need to manually set Content-Type for FormData
+                });
             } else {
                 // If no new images, just update the text data
-                await fetch(`your-api-endpoint/products/${id}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
+                await fetch(`/products/${id}`, {
+                    method: 'patch',
                     body: JSON.stringify(baseFormData)
                 });
             }

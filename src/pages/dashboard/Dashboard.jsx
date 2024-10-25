@@ -7,9 +7,8 @@ import UserEvent from "./UserEvent";
 
 const Dashboard = () => {
   return (
-    <div>
-      
-      <div class="parent">
+    <div >
+      <div class="parent mt-16">
         <div class="div1">
           <BusinessDetails />
         </div>

@@ -20,6 +20,10 @@ import ProductDetailsMain from "./components/ProductDetailsMain";
 import EditProduct from "./components/EditProduct";
 import AddProduct from "./components/ApiAddProduct";
 import ProductDetailsMawuse from "./components/ProductDetailsMawuse";
+import DashboardPage from "./pages/vendorpage/DashboardPage";
+import Dashboard from "./pages/dashboard/Dashboard";
+import MyStorePage from "./pages/vendorpage/MyStorePage";
+import PostProductPage from "./pages/vendorpage/PostProductPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -29,18 +33,26 @@ function App() {
     },
     {
       path: "/about",
-      element: <About />,
+      element: <Dashboard />,
     },
     {
-      path: "/root",
-      element: <RootLayout />,
+      path: "/vendordashboard",
+      element: <DashboardPage />,
+    },
+    {
+      path: "/vendordashboard/myproducts",
+      element: <MyStorePage />,
+    },
+    {
+      path: "/vendordashboard/postproduct",
+      element: <PostProductPage />
     },
     {
       path: "/sidebar",
       element: <UserHomePage />,
     },
     {
-      path: "/vendor",
+      path: "/vendorlayout",
       element: <VendorLayout />,
     },
     {

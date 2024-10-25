@@ -46,8 +46,7 @@ const Cart = () => {
                       </p>
                       <div className="flex">
                         <button
-                          onClick={() => removeFromCart(product.id)}
-                         className="text-xl border-2 rounded-full px-2">
+                          onClick={() => removeFromCart(product.id)} className="text-xl border-2 rounded-full px-2">
                           -
                         </button>
                         <input

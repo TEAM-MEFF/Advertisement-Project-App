@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { apiGetOneProduct } from '../Services/products';
+import { apiEditProduct, apiGetOneProduct } from '../Services/products';
 
 const EditProduct = () => {
     const { id } = useParams();
-
     const navigate = useNavigate();
 
     const categories = ['furniture', 'clothing', 'appliances', 'groceries', 'electronics'];
@@ -23,56 +22,42 @@ const EditProduct = () => {
     const [error, setError] = useState('');
     const [initialLoad, setInitialLoad] = useState(true);
 
-
-    const fetchProduct = async () => {
-        try {
-            const response = await apiGetOneProduct(id);
-            const product = response.data;
-
-            setFormData({
-                productName: product.productName || '',
-                description: product.description || '',
-                category: product.category || '',
-                price: product.price || '',
-                discountPrice: product.discountPrice || '',
-                discountPercentage: product.discountPercentage || '',
-            });
-            setInitialLoad(false);
-        } catch (error) {
-            setError('Error loading product. Please try again.');
-            console.error('Error fetching product:', error);
-        }
-    };
-
     useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const response = await apiGetOneProduct(id);
+                const product = response.data;
+
+                setFormData({
+                    productName: product.productName || '',
+                    description: product.description || '',
+                    category: product.category || '',
+                    price: product.price || '',
+                    discountPrice: product.discountPrice || '',
+                    discountPercentage: product.discountPercentage || '',
+                });
+                setInitialLoad(false);
+            } catch (error) {
+                setError('Error loading product. Please try again.');
+                console.error('Error fetching product:', error);
+            }
+        };
+
         fetchProduct();
     }, [id]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-        if (name === 'discountPrice' && value) {
-            setFormData(prev => ({
-                ...prev,
-                [name]: value,
-                discountPercentage: ''
-            }));
-        } else if (name === 'discountPercentage' && value) {
-            setFormData(prev => ({
-                ...prev,
-                [name]: value,
-                discountPrice: ''
-            }));
-        } else {
-            setFormData(prev => ({
-                ...prev,
-                [name]: value
-            }));
-        }
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+            ...(name === 'discountPrice' && value ? { discountPercentage: '' } : {}),
+            ...(name === 'discountPercentage' && value ? { discountPrice: '' } : {}),
+        }));
     };
 
     const handleImageChange = (e) => {
-        const files = Array.from(e.target.files);
-        setImages(files);
+        setImages(Array.from(e.target.files));
     };
 
     const handleSubmit = async (e) => {
@@ -81,51 +66,24 @@ const EditProduct = () => {
         setMessage('');
         setError('');
 
-
         try {
-            const baseFormData = {
-                productName: formData.productName,
-                description: formData.description || '',
-                category: formData.category,
-                price: formData.price,
-                ...(formData.discountPrice && { discountPrice: formData.discountPrice }),
-                ...(formData.discountPercentage && { discountPercentage: formData.discountPercentage })
+            const productData = new FormData();
+            Object.keys(formData).forEach(key => productData.append(key, formData[key]));
 
-            };
-
-            console.log('Payload being sent:', baseFormData);  // Log data before sending
-
-            // If new images are selected
             if (images.length > 0) {
-                const productData = new FormData();
-                Object.keys(baseFormData).forEach(key => {
-                    productData.append(key, baseFormData[key]);
-                });
-                images.forEach(image => {
-                    productData.append('images', image);  // Append images one by one
-                });
-
-                // Use your update API endpoint here
-                await fetch(`/products/${id}`, {
-                    method: 'PATCH',
-                    body: productData,  // No need to manually set Content-Type for FormData
-                });
+                images.forEach(image => productData.append('images', image));
+                await apiEditProduct(id, productData); // Use FormData if images are included
             } else {
-                // If no new images, just update the text data
-                await fetch(`/products/${id}`, {
-                    method: 'patch',
-                    body: JSON.stringify(baseFormData)
-                });
+                await apiEditProduct(id, formData); // Send JSON if no images
             }
 
             setMessage('Product updated successfully!');
             setTimeout(() => {
-                navigate(`/product/${id}`); // Redirect to product details page
+                navigate(`/product/${id}`);
             }, 2000);
-
         } catch (error) {
-            console.error('Error details:', error);
             setError(error.response?.data?.message || 'Error updating product. Please try again.');
+            console.error('Error details:', error);
         } finally {
             setLoading(false);
         }
@@ -168,11 +126,10 @@ const EditProduct = () => {
                             <input
                                 type="text"
                                 name="productName"
-                                // defaultValue={"Enter Product Name"}
                                 value={formData.productName}
                                 onChange={handleInputChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -185,7 +142,7 @@ const EditProduct = () => {
                                 value={formData.description}
                                 onChange={handleInputChange}
                                 rows="4"
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -198,7 +155,7 @@ const EditProduct = () => {
                                 value={formData.category}
                                 onChange={handleInputChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             >
                                 <option value="">Select a category</option>
                                 {categories.map(category => (
@@ -219,7 +176,7 @@ const EditProduct = () => {
                                 value={formData.price}
                                 onChange={handleInputChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             />
                         </div>
 
@@ -234,7 +191,7 @@ const EditProduct = () => {
                                     value={formData.discountPrice}
                                     onChange={handleInputChange}
                                     disabled={formData.discountPercentage !== ''}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                                 />
                             </div>
 
@@ -248,7 +205,7 @@ const EditProduct = () => {
                                     value={formData.discountPercentage}
                                     onChange={handleInputChange}
                                     disabled={formData.discountPrice !== ''}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100"
                                 />
                             </div>
                         </div>
@@ -276,38 +233,30 @@ const EditProduct = () => {
                                     <div className="flex text-sm text-gray-600">
                                         <label
                                             htmlFor="imageInput"
-                                            className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none"
+                                            className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-blue-500"
                                         >
-                                            <span>Upload new files</span>
+                                            <span>Upload Images</span>
                                             <input
                                                 id="imageInput"
+                                                name="images"
                                                 type="file"
-                                                multiple
-                                                accept="image/*"
                                                 onChange={handleImageChange}
                                                 className="sr-only"
+                                                multiple
                                             />
                                         </label>
                                         <p className="pl-1">or drag and drop</p>
                                     </div>
-                                    <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                    <p className="text-xs text-gray-500">PNG, JPG up to 10MB</p>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="flex gap-4">
-                            <button
-                                type="button"
-                                onClick={() => navigate(`/product/${id}`)}
-                                className="flex-1 py-3 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                            >
-                                Cancel
-                            </button>
+                        <div>
                             <button
                                 type="submit"
+                                className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
                                 disabled={loading}
-                                className={`flex-1 py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white 
-                                ${loading ? 'bg-blue-400 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'}`}
                             >
                                 {loading ? 'Updating...' : 'Update Product'}
                             </button>

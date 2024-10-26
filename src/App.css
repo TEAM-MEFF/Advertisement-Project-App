@@ -33,12 +33,27 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 6px;
-  grid-row-gap: 7px;
-  }
-  
-  .div1 { grid-area: 1 / 1 / 4 / 2; }
-  .div2 { grid-area: 4 / 1 / 6 / 3; }
-  .div3 { grid-area: 1 / 2 / 4 / 5; }
-  .div4 { grid-area: 4 / 3 / 6 / 5; }
-  .div5 { grid-area: 1 / 5 / 6 / 6; }
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  width: fit-content;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 4 / 2;
+  height: fit-content;
+  overflow: hidden;
+}
+
+.div2 {
+  grid-area: 4 / 1 / 6 / 3;
+  background-color: blue;
+}
+.div3 {
+  grid-area: 1 / 2 / 4 / 5;
+}
+.div4 {
+  grid-area: 4 / 3 / 6 / 5;
+}
+.div5 {
+  grid-area: 1 / 5 / 6 / 6;
+}

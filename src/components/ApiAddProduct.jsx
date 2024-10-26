@@ -101,12 +101,12 @@ const ApiAddProduct = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-md overflow-hidden">
                 <div className="py-8 px-6 sm:px-10">
-                    <div className="text-center mb-8">
-                        <h2 className="text-3xl font-extrabold text-gray-900 mb-2">Add New Product</h2>
-                        <p className="text-sm text-gray-600">Fill in the details to list your product</p>
+                    <div className="text-center mb-3">
+                        <h2 className="text-3xl font-extrabold text-gray-900 mb-1">Add New Product</h2>
+                        <p className="text-sm text-gray-400">Fill in the details to list your product</p>
                     </div>
 
                     {message && (
@@ -122,35 +122,94 @@ const ApiAddProduct = () => {
                     )}
 
                     <form onSubmit={handleSubmit} className="space-y-6">
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Product Name *
-                            </label>
-                            <input
-                                type="text"
-                                name="productName"
-                                value={formData.productName}
-                                onChange={handleInputChange}
-                                required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
+                        <div className='flex gap-5'>
+                            <div className='w-full'>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Product Name *
+                                </label>
+                                <input
+                                    type="text"
+                                    name="productName"
+                                    value={formData.productName}
+                                    onChange={handleInputChange}
+                                    required
+                                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className='w-3/12'>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Price *
+                                </label>
+                                <input
+                                    type="number"
+                                    name="price"
+                                    value={formData.price}
+                                    onChange={handleInputChange}
+                                    content="$"
+                                    required
+                                    pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$"
+                                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
                         </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Description
-                            </label>
-                            <textarea
-                                name="description"
-                                value={formData.description}
-                                onChange={handleInputChange}
-                                rows="4"
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
+                        <div className='flex gap-5'>
+                            <div className='w-full'>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Description
+                                </label>
+                                <textarea
+                                    name="description"
+                                    value={formData.description}
+                                    onChange={handleInputChange}
+                                    rows="4"
+                                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                />
+                            </div>
+                            <div className='w-5/6'>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                    Images *
+                                </label>
+                                <div className="flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
+                                    <div className="space-y-1 text-center">
+                                        <svg
+                                            className="mx-auto h-6 w-12 text-gray-400"
+                                            stroke="currentColor"
+                                            fill="none"
+                                            viewBox="0 0 48 48"
+                                            aria-hidden="true"
+                                        >
+                                            <path
+                                                d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                                strokeWidth={2}
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                        <div className="flex text-sm text-gray-600">
+                                            <label
+                                                htmlFor="imageInput"
+                                                className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none"
+                                            >
+                                                <span>Upload files</span>
+                                                <input
+                                                    id="imageInput"
+                                                    type="file"
+                                                    multiple
+                                                    accept="image/*"
+                                                    required
+                                                    onChange={handleImageChange}
+                                                    className="sr-only"
+                                                />
+                                            </label>
+                                            <p className="pl-1">or drag and drop</p>
+                                        </div>
+                                        <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                         <div>
-                            <label className="block text-sm font-medium text-gray-700">
+                            <label className="block text-sm font-medium text-gray-700 mb-2">
                                 Category *
                             </label>
                             <select
@@ -158,9 +217,9 @@ const ApiAddProduct = () => {
                                 value={formData.category}
                                 onChange={handleInputChange}
                                 required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                                className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                             >
-                                <option value="">Select a category</option>
+                                <option value="" disabled>Select a category</option>
                                 {categories.map(category => (
                                     <option key={category} value={category}>
                                         {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -168,24 +227,9 @@ const ApiAddProduct = () => {
                                 ))}
                             </select>
                         </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Price *
-                            </label>
-                            <input
-                                type="text"
-                                name="price"
-                                value={formData.price}
-                                onChange={handleInputChange}
-                                required
-                                className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-                            />
-                        </div>
-
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Discount Price
                                 </label>
                                 <input
@@ -194,12 +238,12 @@ const ApiAddProduct = () => {
                                     value={formData.discountPrice}
                                     onChange={handleInputChange}
                                     disabled={formData.discountPercentage !== ''}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
                                 />
                             </div>
 
                             <div>
-                                <label className="block text-sm font-medium text-gray-700">
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
                                     Discount Percentage
                                 </label>
                                 <input
@@ -208,54 +252,10 @@ const ApiAddProduct = () => {
                                     value={formData.discountPercentage}
                                     onChange={handleInputChange}
                                     disabled={formData.discountPrice !== ''}
-                                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
+                                    className="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 disabled:bg-gray-100 disabled:cursor-not-allowed"
                                 />
                             </div>
                         </div>
-
-                        <div>
-                            <label className="block text-sm font-medium text-gray-700">
-                                Images *
-                            </label>
-                            <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                <div className="space-y-1 text-center">
-                                    <svg
-                                        className="mx-auto h-12 w-12 text-gray-400"
-                                        stroke="currentColor"
-                                        fill="none"
-                                        viewBox="0 0 48 48"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
-                                            strokeWidth={2}
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                    <div className="flex text-sm text-gray-600">
-                                        <label
-                                            htmlFor="imageInput"
-                                            className="relative cursor-pointer bg-white rounded-md font-medium text-blue-600 hover:text-blue-500 focus-within:outline-none"
-                                        >
-                                            <span>Upload files</span>
-                                            <input
-                                                id="imageInput"
-                                                type="file"
-                                                multiple
-                                                accept="image/*"
-                                                required
-                                                onChange={handleImageChange}
-                                                className="sr-only"
-                                            />
-                                        </label>
-                                        <p className="pl-1">or drag and drop</p>
-                                    </div>
-                                    <p className="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
-                                </div>
-                            </div>
-                        </div>
-
                         <button
                             type="submit"
                             disabled={loading}

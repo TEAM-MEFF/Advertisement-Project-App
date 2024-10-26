@@ -8,14 +8,14 @@ import UserEvent from "./UserEvent";
 const Dashboard = () => {
   return (
     <div >
-      <div class="parent mt-16">
+      <div class="parent mt-14 bg-slate-200">
         <div class="div1">
           <BusinessDetails />
         </div>
         <div class="div2">
           <SalesByCategory />
         </div>
-        <div class="div3">
+        <div className="div3 h-10">
           <MostViewedProduct />
         </div>
         <div class="div4">

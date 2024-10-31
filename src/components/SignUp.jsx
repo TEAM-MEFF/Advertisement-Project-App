@@ -66,7 +66,7 @@ const SignUp = () => {
         <p className="text-2xl font-semibold text-[#0E345A] relative pl-10 mb-8">
           SignUp
           <span className="mt-[4px] absolute left-[4px] top-[5px] w-4 h-4 bg-[#0E345A] rounded-full"></span>
-          <span className="mt-[5px] absolute left-0 top-0 w-6 h-6 animate-pulse bg-[#0E345A] rounded-full opacity-10"></span>
+          <span className="mt-[5px] absolute left-0 top-0 w-6 h-6 animate-pulse                   bg-[#0E345A] rounded-full opacity-10"></span>
         </p>
         <div className="space-y-2">
           <div>

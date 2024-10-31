@@ -29,8 +29,8 @@ const Login = () => {
 
       if (response.status === 200) {
         localStorage.setItem("token", response.data.accessToken);
-        const profileResponse = await apiProfile();
-        console.log(profileResponse.data);
+        // const profileResponse = await apiProfile();
+        // console.log(profileResponse.data);
       }
     } catch (error) {
       toast.error("Login failed. Please try again.");

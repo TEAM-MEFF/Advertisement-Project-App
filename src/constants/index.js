@@ -31,7 +31,7 @@ export const PRODUCTS = [
     },
     {
         "id": 3,
-        "title": "Apple MacBook Pro 13-inch",
+        "title": "Apple MacBook Pro - M2",
         "category": "Electronics",
         "description": "Apple's latest MacBook Pro with an M1 chip delivers incredible performance for professionals. Lightweight, with long battery life and a brilliant Retina display.",
         "images": [

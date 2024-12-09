@@ -1,7 +1,7 @@
 import React from "react";
 import ProductFetch from "../components/ProductFetch";
 import NavbarResponsive from "../components/NavbarResponsive";
-import ApiProductFetch from "../components/apiProductFetch";
+import ApiProductFetch from "../components/ApiProductFetch";
 import CategoriesSection from "./user/components/CategoriesSection";
 import HeroCarousel from "../components/HeroCarousel";
 

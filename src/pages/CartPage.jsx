@@ -1,14 +1,15 @@
-import React from 'react'
-import NavbarResponsive from '../components/NavbarResponsive'
-import Cart from './Cart'
+import React from "react";
+import NavbarResponsive from "../components/NavbarResponsive";
+import Cart from "./Cart";
 
 const CartPage = () => {
   return (
     <div>
-        <NavbarResponsive/>
-        <Cart/>
+      <NavbarResponsive />
+      <Cart />
+      {/* ... */}
     </div>
-  )
-}
+  );
+};
 
-export default CartPage
+export default CartPage;

@@ -7,6 +7,7 @@ const CartPage = () => {
     <div>
       <NavbarResponsive />
       <Cart />
+      {/* ... */}
     </div>
   );
 };

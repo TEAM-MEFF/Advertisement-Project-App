@@ -3,7 +3,7 @@ import IonIcon from "@reacticons/ionicons";
 import { ShopContext } from "../context/ShopContextProvider";
 
 const ApiGetProduct = ({
-  key,
+  id,
   productName,
   description,
   category,
@@ -53,7 +53,7 @@ const ApiGetProduct = ({
           <div>
             <button
               className=" absolute bottom-2 right-2 px-2 pb-1 bg-theme-color text-white rounded-md"
-              onClick={() => addToCart(key)}
+              onClick={() => addToCart(id)}
             >
               <span className="text-sm">Add to</span>
               <div className="flex justify-center items-center gap-1">

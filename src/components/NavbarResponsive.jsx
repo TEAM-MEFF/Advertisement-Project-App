@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ShoppingCart, User } from "lucide-react";
 import { BiUser } from "react-icons/bi";
 
-const NavbarResponsive = () => {
+const NavbarResponsive = ({ totalAmount, getTotalCartAmount }) => {
 	let [open, setOpen] = useState(false);
 
 	return (
@@ -38,7 +38,15 @@ const NavbarResponsive = () => {
 							name="cart-outline"
 							className="text-xl md:text-2xl text-theme-color my-auto align-middle"
 						/>
-						<span className=" w-1.5 md:w-2 h-1.5 md:h-2 absolute top-0 -right-1 md:top-[-3px] md:right-[-6px] bg-red-400 rounded-full"></span>
+						<span
+							className={`${
+								totalAmount > 0
+									? "w-1.5 md:w-2 h-1.5 md:h-2 absolute top-0 -right-1 md:top-[-3px] md:right-[-6px] bg-red-400 rounded-full "
+									: "w-1.5 md:w-2 h-1.5 md:h-2 absolute top-0 -right-1 md:top-[-3px] md:right-[-6px] bg-red-400 rounded-full"
+							}`}
+						>
+							<span className="w-1.5 md:w-2 h-1.5 md:h-2 absolute top-0 bg-red-400 rounded-full animate-ping"></span>
+						</span>
 					</div>
 				</Link>
 			</div>

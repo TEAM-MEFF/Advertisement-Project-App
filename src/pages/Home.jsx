@@ -1,18 +1,21 @@
-import React from "react";
 import ProductFetch from "../components/ProductFetch";
 import NavbarResponsive from "../components/NavbarResponsive";
 import ApiProductFetch from "../components/ApiProductFetch";
 import CategoriesSection from "./user/components/CategoriesSection";
 import HeroCarousel from "../components/HeroCarousel";
+import Footer from "../components/Footer";
+import Contact from "../components/Contact";
 
 const Home = () => {
 	return (
-		<div>
+		<div className="bg-blue-50">
 			<NavbarResponsive />
 			<HeroCarousel />
-			<ApiProductFetch />
 			<ProductFetch />
-			{/* <CategoriesSection /> */}
+			<ApiProductFetch />
+			<CategoriesSection />
+			<Contact />
+			<Footer />
 		</div>
 	);
 };

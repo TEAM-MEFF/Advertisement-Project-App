@@ -3,13 +3,13 @@ import NavbarResponsive from "../components/NavbarResponsive";
 import Cart from "./Cart";
 
 const CartPage = () => {
-  return (
-    <div>
-      <NavbarResponsive />
-      <Cart />
-      {/* ... */}
-    </div>
-  );
+	return (
+		<div className="bg-blue-50 h-screen">
+			<NavbarResponsive />
+			<Cart />
+			{/* ... */}
+		</div>
+	);
 };
 
 export default CartPage;

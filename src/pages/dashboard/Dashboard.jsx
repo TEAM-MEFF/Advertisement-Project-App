@@ -8,24 +8,6 @@ import UserEvent from "./UserEvent";
 const Dashboard = () => {
 	return (
 		<div>
-			{/* <div className="parent mt-14 ">
-				<div className="div1">
-					<BusinessDetails />
-				</div>
-				<div className="div2">
-					<SalesByCategory />
-				</div>
-				<div className="div3">
-					<MostViewedProduct />
-				</div>
-				<div className="div4">
-					<MostPurshased />
-				</div>
-				<div className="div5">
-					<UserEvent />
-				</div>
-			</div> */}
-			{/* <hr className="py-2" /> */}
 			<div className="mt-14">
 				<div className="grid md:grid-cols-8 bg-inputRing">
 					<section className="col-span-6">

@@ -93,7 +93,7 @@ const SignUp = () => {
 					</div>
 				</div>
 				<div className="space-y-2">
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="avatar" className="font-medium text-sm">
 							Profile Picture
 						</label>
@@ -106,7 +106,7 @@ const SignUp = () => {
 							className="w-full px-3 py-1 md:py-1.5 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG"
 						/>
 					</div>
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="userName" className="font-medium text-sm">
 							User Name
 						</label>
@@ -119,7 +119,7 @@ const SignUp = () => {
 							className="w-full px-3 py-1.5 md:py-2 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG "
 						/>
 					</div>
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="email" className="font-medium text-sm">
 							Email
 						</label>
@@ -132,7 +132,7 @@ const SignUp = () => {
 							className="w-full px-3 py-1.5 md:py-2 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG "
 						/>
 					</div>
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="password" className="font-medium text-sm">
 							Password
 						</label>
@@ -145,7 +145,7 @@ const SignUp = () => {
 							className="w-full px-3 py-1.5 md:py-2 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG "
 						/>
 					</div>
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="phone" className="font-medium text-sm">
 							Contact
 						</label>
@@ -158,7 +158,7 @@ const SignUp = () => {
 							className="w-full px-3 py-1.5 md:py-2 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG "
 						/>
 					</div>
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="role" className="font-medium text-sm">
 							Role
 						</label>
@@ -175,7 +175,7 @@ const SignUp = () => {
 							<option value="vendor">Vendor</option>
 						</select>
 					</div>
-					<div className="">
+					<div className="flex flex-col gap-1">
 						<label htmlFor="businessName" className="font-medium text-sm">
 							Business Name
 						</label>

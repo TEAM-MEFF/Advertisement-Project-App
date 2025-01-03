@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import IonIcon from "@reacticons/ionicons";
 import { Link } from "react-router-dom";
-import { ShoppingCart, User } from "lucide-react";
-import { BiUser } from "react-icons/bi";
+import { User } from "lucide-react";
 
 const NavbarResponsive = ({ totalAmount, getTotalCartAmount }) => {
 	let [open, setOpen] = useState(false);

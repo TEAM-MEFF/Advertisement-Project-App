@@ -73,7 +73,7 @@ const Login = () => {
 					</div>
 				</div>
 				<div className="space-y-2">
-					<div>
+					<div className="flex flex-col gap-1">
 						<label htmlFor="email" className="font-medium text-sm">
 							Email
 						</label>
@@ -86,10 +86,18 @@ const Login = () => {
 							className="w-full px-2 py-2 bg-inputBG rounded-md focus:outline-none ring ring-inputRing focus:ring-2  focus:ring-hoverBG"
 						/>
 					</div>
-					<div>
-						<label htmlFor="password" className="font-medium text-sm">
-							Password
-						</label>
+					<div className="flex flex-col gap-1">
+						<div className="flex justify-between items-end">
+							<label htmlFor="password" className="font-medium text-sm">
+								Password
+							</label>
+							<Link
+								className="text-sm text-theme-color hover:text-hoverBG font-semibold underline pt-1 w-fit"
+								to=""
+							>
+								Forgot Password?
+							</Link>
+						</div>
 						<input
 							required
 							type="password"

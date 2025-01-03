@@ -8,7 +8,7 @@ const NavbarResponsive = ({ totalAmount, getTotalCartAmount }) => {
 	let [open, setOpen] = useState(false);
 
 	return (
-		<div className="fixed top-0 left-0 z-10 flex py-2 w-full justify-between px-4 sm:px-6 lg:px-8 xl:px-10 bg-blue-200 ">
+		<div className="fixed top-0 left-0 z-10 flex py-2 w-full justify-between px-4 sm:px-6 lg:px-8 xl:px-10 bg-highlight border-b border-green-300 shadow-lg">
 			<div className="content-center items-center">
 				<Link to="/">
 					<span className="bg-theme-color text-sm md:text-base lg:text-lg px-2 md:px-3 py-1 md:py-2 text-white font-bold content-center text-center">

@@ -26,14 +26,14 @@ const ProductFetch = () => {
 						name="list-outline"
 						onClick={() => setGridView(false)}
 						className={`text-2xl md:text-4xl cursor-pointer ${
-							!gridView ? "text-theme-color" : "text-black"
+							!gridView ? "text-theme-color" : "text-[#CDE500]"
 						}`}
 					/>
 					<IonIcon
 						name="grid-outline"
 						onClick={() => setGridView(true)}
 						className={`text-xl md:text-3xl cursor-pointer ${
-							gridView ? "text-theme-color" : "text-black"
+							gridView ? "text-theme-color" : "text-[#CDE500]"
 						}`}
 					/>
 				</div>
@@ -111,8 +111,8 @@ const ProductFetch = () => {
 											<p
 												className={`${
 													gridView
-														? "text-sm md:text-base font-semibold pt-1"
-														: "text-sm md:text-base lg:text-lg font-semibold pt-1"
+														? "text-sm md:text-base font-semibold pt-1 md:pt-0"
+														: "text-sm md:text-base lg:text-lg font-semibold pt-1 md:pt-0"
 												}`}
 											>
 												<sup className="text-slate-500 text-xs">GH₵</sup>
@@ -133,8 +133,8 @@ const ProductFetch = () => {
 								<button
 									className={`${
 										gridView
-											? "absolute bottom-2 right-2 px-1 md:px-2 pb-1 bg-theme-color hover:bg-blue-800 text-white rounded-md"
-											: "absolute bottom-2 right-2 px-1 md:px-2 pb-1 bg-theme-color text-white rounded-md"
+											? "absolute bottom-2 md:bottom-4 right-2 md:right-4 px-1 md:px-2 pb-1 bg-theme-color hover:bg-green-800 text-white rounded-md"
+											: "absolute bottom-2 md:bottom-4 right-2 md:right-4 px-1 md:px-2 pb-1 bg-theme-color text-white rounded-md"
 									} `}
 									onClick={() => handleAddToCart(product.id)} // Trigger toast on click
 								>

@@ -19,118 +19,147 @@ import ProductDetails from "./components/ProductDetails";
 import ProductDetailsMain from "./components/ProductDetailsMain";
 import EditProduct from "./components/EditProduct";
 import AddProduct from "./components/ApiAddProduct";
+import AddProducts from "./components/ApiAddProducts";
 import ProductDetailsMawuse from "./components/ProductDetailsMawuse";
 import DashboardPage from "./pages/vendorpage/DashboardPage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import MyStorePage from "./pages/vendorpage/MyStorePage";
-import PostProductPage from "./pages/vendorpage/PostProductPage";
+// import PostProductPage from "./pages/vendorpage/PostProductPage";
+import MainDashboard from "./components/MainDashboard";
 
 function App() {
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/about",
-      element: <Dashboard />,
-    },
-    {
-      path: "/vendordashboard",
-      element: <DashboardPage />,
-    },
-    {
-      path: "/vendordashboard/myproducts",
-      element: <MyStorePage />,
-    },
-    {
-      path: "/vendordashboard/postproduct",
-      element: <PostProductPage />
-    },
-    {
-      path: "/sidebar",
-      element: <UserHomePage />,
-    },
-    {
-      path: "/vendorlayout",
-      element: <VendorLayout />,
-    },
-    {
-      path: "/cart",
-      element: <CartPage />,
-    },
-    {
-      path: "/sign-up",
-      element: <SignUp />,
-    },
-    {
-      path: "/login",
-      element: <Login />,
-    },
-    // {
-    //   path: "/product/:id",
-    //   element: <ProductDetailsMain />,
-    // },
-    {
-      path: "/product/:id",
-      element: <ProductDetailsMawuse />
-    },
-    {
-      path: "/product/edit/:id",
-      element: <EditProduct />
-    },
-    {
-      path: "/vendordash",
-      element: <VendorDashboard />,
-    },
-    {
-      path: "/vendordashboard",
-      element: <VendorDashboardd />,
-    },
-    {
-      path: "/dashboard",
-      element: <DashboardLayout />,
-      children: [
-        {
-          index: true,
-          // path: "overview",
-          element: <Overview />,
-        },
-        {
-          path: "settings",
-          element: <Settings />,
-        },
-      ],
-    },
-    // {
-    //   path: "/ven",
-    //   element: <DashboardLayout />,
-    //   children: [
-    //     {
-    //       index: true,
-    //       // path: "overview",
-    //       element: <Overview />,
-    //     },
-    //     {
-    //       path: "/product",
-    //       element: <ProductDetailsMain />
-    //     },
-    //     {
-    //       path: "/addProduct",
-    //       element: <AddProduct />
-    //     },
-    //     {
-    //       path: "/editAd/:id",
-    //       element: <EditProduct />
-    //     },
-    //   ],
-    // },
-  ]);
-  return (
-    <ShopContextProvider>
-      <RouterProvider router={router} />
-    </ShopContextProvider>
-  );
+	const router = createBrowserRouter([
+		{
+			path: "/",
+			element: <Home />,
+		},
+		{
+			path: "/sign-up",
+			element: <SignUp />,
+		},
+		{
+			path: "/login",
+			element: <Login />,
+		},
+		{
+			path: "/cart",
+			element: <CartPage />,
+		},
+		{
+			path: "/dashboard",
+			element: <MainDashboard />,
+			children: [
+				{
+					index: true,
+					// path: "overview",
+					element: <Dashboard />,
+				},
+				{
+					path: "store",
+					element: <MyStorePage />,
+				},
+				{
+					path: "post",
+					element: <AddProduct />,
+				},
+				{
+					path: "settings",
+					element: <Settings />,
+				},
+			],
+		},
+		{
+			path: "/about",
+			element: <Dashboard />,
+		},
+		{
+			path: "/addProduct",
+			element: <AddProduct />,
+		},
+		{
+			path: "/addProducts",
+			element: <AddProducts />,
+		},
+		{
+			path: "/vendordashboard",
+			element: <DashboardPage />,
+		},
+		{
+			path: "/vendordashboard/myproducts",
+			element: <MyStorePage />,
+		},
+		{
+			path: "/sidebar",
+			element: <UserHomePage />,
+		},
+		{
+			path: "/vendorlayout",
+			element: <VendorLayout />,
+		},
+		// {
+		//   path: "/product/:id",
+		//   element: <ProductDetailsMain />,
+		// },
+		{
+			path: "/product/:id",
+			element: <ProductDetailsMawuse />,
+		},
+		{
+			path: "/product/edit/:id",
+			element: <EditProduct />,
+		},
+		{
+			path: "/vendordash",
+			element: <VendorDashboard />,
+		},
+		{
+			path: "/vendordashboard",
+			element: <VendorDashboardd />,
+		},
+		{
+			path: "/main",
+			element: <DashboardLayout />,
+			children: [
+				{
+					index: true,
+					// path: "overview",
+					element: <Overview />,
+				},
+				{
+					path: "settings",
+					element: <Settings />,
+				},
+			],
+		},
+		// {
+		//   path: "/ven",
+		//   element: <DashboardLayout />,
+		//   children: [
+		//     {
+		//       index: true,
+		//       // path: "overview",
+		//       element: <Overview />,
+		//     },
+		//     {
+		//       path: "/product",
+		//       element: <ProductDetailsMain />
+		//     },
+		//     {
+		//       path: "/addProduct",
+		//       element: <AddProduct />
+		//     },
+		//     {
+		//       path: "/editAd/:id",
+		//       element: <EditProduct />
+		//     },
+		//   ],
+		// },
+	]);
+	return (
+		<ShopContextProvider>
+			<RouterProvider router={router} />
+		</ShopContextProvider>
+	);
 }
 
 export default App;

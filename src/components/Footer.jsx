@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
 	return (
-		<footer className="bg-blue-200 text-theme-color py-6">
+		<footer className="bg-highlight text-theme-color py-6">
 			<div className="max-w-7xl mx-auto px-6 lg:px-8">
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-8 gap-4 md:gap-8 items-start">
 					{/* Section 1 - Logo and About */}
@@ -108,7 +108,7 @@ const Footer = () => {
 							<input
 								type="email"
 								placeholder="Enter your email"
-								className="w-full px-4 py-2 md:py-3 rounded-l-lg focus:ring-2 text-theme-color focus:ring-theme-color focus:outline-none "
+								className="w-full px-4 py-2 md:py-3 rounded-l-lg focus:ring-2 bg-bg-inputBG text-theme-color focus:ring-theme-color focus:outline-none "
 							/>
 							<button className="bg-theme-color px-5 py-2 md:py-3 rounded-r-lg text-white hover:bg-[#0e345ade] ring-2 ring-theme-color transition">
 								Subscribe

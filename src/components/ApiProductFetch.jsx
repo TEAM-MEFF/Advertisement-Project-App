@@ -50,14 +50,14 @@ const ApiProductFetch = () => {
 						name="list-outline"
 						onClick={() => setShowGrid(false)}
 						className={`text-2xl md:text-4xl cursor-pointer ${
-							!showGrid ? "text-theme-color" : "text-black"
+							!showGrid ? "text-theme-color" : "text-[#CDE500]"
 						}`}
 					/>
 					<IonIcon
 						name="grid-outline"
 						onClick={() => setShowGrid(true)}
 						className={`text-xl md:text-3xl cursor-pointer ${
-							showGrid ? "text-theme-color" : "text-black"
+							showGrid ? "text-theme-color" : "text-[#CDE500]"
 						}`}
 					/>
 				</div>
@@ -65,7 +65,7 @@ const ApiProductFetch = () => {
 			<div
 				className={`entireSpace ${
 					showGrid
-						? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5"
+						? "grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
 						: "flex flex-col md:grid md:grid-cols-2"
 				} gap-4`}
 			>

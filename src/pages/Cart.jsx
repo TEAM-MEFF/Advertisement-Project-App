@@ -31,7 +31,7 @@ const Cart = () => {
 				<h2
 					className={`${
 						totalAmount > 0
-							? "sticky -top-14 z-10 pt-16 pb-4 mx-auto font-semibold text-base sm:text-xl md:text-2xl"
+							? "sticky text-theme-color -top-11 md:-top-14 z-10 pt-14 md:pt-16 pb-4 mx-auto font-semibold text-sm sm:text-base md:text-xl lg:text-2xl"
 							: "hidden"
 					}`}
 				>
@@ -52,7 +52,7 @@ const Cart = () => {
 								// then product is in the cart...
 								return (
 									<div>
-										<div className="flex items-center justify-start gap-3 md:gap-5 bg-blue-200 rounded-lg shadow-md w-full h-[120px] sm:h-[130px] md:h-[140px] mx-auto p-2">
+										<div className="flex items-center justify-start gap-3 md:gap-5 bg-highlight rounded-lg shadow-md w-full h-[120px] sm:h-[130px] md:h-[140px] mx-auto p-2">
 											<img
 												src={product.images[0]}
 												alt="productImage"
@@ -71,7 +71,7 @@ const Cart = () => {
 												<div className="flex">
 													<button
 														onClick={() => removeFromCart(product.id)}
-														className="text-theme-color hover:text-blue-800"
+														className="text-theme-color hover:text-green-800"
 													>
 														<MinusCircle />
 													</button>
@@ -87,7 +87,7 @@ const Cart = () => {
 													/>
 													<button
 														onClick={() => addToCart(product.id)}
-														className="text-theme-color hover:text-blue-800"
+														className="text-theme-color hover:text-green-800"
 													>
 														<PlusCircle />
 													</button>
@@ -101,7 +101,7 @@ const Cart = () => {
 					</div>
 					{totalAmount > 0 ? (
 						<div className="fixed bottom-20 sm:top-28 right-4 z-50">
-							<div className="summary w-[230px] md:w-[280px] lg:w-[310px] xl:w-[340px] space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 bg-blue-200 border border-theme-color text-theme-color px-3 md:px-5 py-5 mb:py-8 shadow-md rounded-lg">
+							<div className="summary w-[230px] md:w-[280px] lg:w-[320px] xl:w-[350px] space-y-3 sm:space-y-4 md:space-y-5 lg:space-y-6 bg-highlight border border-green-300 text-theme-color px-3 md:px-5 py-5 mb:py-8 shadow-md rounded-lg">
 								<h2 className="font-bold text-xl md:text-2xl">Summary</h2>
 								<div className="space-y-1 md:space-y-2">
 									<p className="sum-total flex items-center justify-between uppercase font-semibold text-base md:text-lg">
@@ -120,7 +120,7 @@ const Cart = () => {
 									</p>
 								</div>
 								<div className="space-y-2 pb-1 md:pb-3">
-									<button className="check-out-btn px-3 py-2 bg-theme-color hover:bg-blue-900 text-white rounded-lg font-medium uppercase cursor-pointer text-sm md:text-base w-full">
+									<button className="check-out-btn px-3 py-2 bg-theme-color hover:bg-green-900 text-white rounded-lg font-medium uppercase cursor-pointer text-sm md:text-base w-full">
 										Proceed to Checkout
 									</button>
 									<button
@@ -139,7 +139,7 @@ const Cart = () => {
 								alt=""
 								className="w-72 sm:w-80 md:w-96 mx-auto"
 							/>
-							<p className="flex text-red-600 text-xl font-semibold justify-center items-center p-2 animate-bounce duration-1000">
+							<p className="flex text-red-600 text-lg md:text-xl font-semibold justify-center items-center p-2 animate-bounce duration-1000">
 								Your Cart is Empty
 							</p>
 						</div>

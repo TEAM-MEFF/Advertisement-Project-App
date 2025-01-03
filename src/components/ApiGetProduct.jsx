@@ -104,8 +104,8 @@ const ApiGetProduct = ({
 						<button
 							className={`${
 								showGrid
-									? "absolute bottom-2 right-2 px-1 md:px-2 pb-1 bg-theme-color hover:bg-blue-800 text-white rounded-md"
-									: "absolute bottom-2 right-2 px-1 md:px-2 pb-1 bg-theme-color text-white rounded-md"
+									? "absolute bottom-2 md:bottom-4 right-2 md:right-4 px-1 md:px-2 pb-1 bg-theme-color hover:bg-green-800 text-white rounded-md"
+									: "absolute bottom-2 md:bottom-4 right-2 md:right-4 px-1 md:px-2 pb-1 bg-theme-color text-white rounded-md"
 							} `}
 							onClick={() => addToCart(id)}
 						>

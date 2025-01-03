@@ -8,7 +8,7 @@ import Contact from "../components/Contact";
 
 const Home = () => {
 	return (
-		<div className="bg-blue-50">
+		<div>
 			<NavbarResponsive />
 			<HeroCarousel />
 			<ProductFetch />

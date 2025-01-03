@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+	@apply bg-[#F1F8F4];
+	@apply text-theme-color;
+}

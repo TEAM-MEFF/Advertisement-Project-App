@@ -34,7 +34,7 @@ function App() {
 			element: <Home />,
 		},
 		{
-			path: "/sign-up",
+			path: "/register",
 			element: <SignUp />,
 		},
 		{

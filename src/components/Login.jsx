@@ -65,7 +65,7 @@ const Login = () => {
 							New Here?{" "}
 							<Link
 								className="text-theme-color hover:text-hoverBG font-semibold underline"
-								to="/sign-up"
+								to="/register"
 							>
 								Sign up
 							</Link>

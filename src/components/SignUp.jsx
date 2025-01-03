@@ -43,7 +43,7 @@ const SignUp = () => {
 			const response = await apiSignup(payload);
 			console.log(response.data);
 
-			// If sign-up is successful, show success toast and navigate to login
+			// If Registeration is successful, show success toast and navigate to login
 			toast.success("You've signed up successfully!");
 
 			setTimeout(() => {
@@ -51,7 +51,7 @@ const SignUp = () => {
 			}, 2000);
 		} catch (error) {
 			console.log(error);
-			toast.error("Sign-up failed. Please try again.");
+			toast.error("Registeration failed. Please try again.");
 		} finally {
 			setLoading(false);
 		}

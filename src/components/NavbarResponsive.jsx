@@ -24,7 +24,7 @@ const NavbarResponsive = ({ totalAmount, getTotalCartAmount }) => {
 			</div>
 			<div className="flex items-center gap-2 md:gap-3">
 				<Link
-					to="/sign-up"
+					to="/registerr"
 					className=" flex gap-0 md:gap-1 border-2 border-theme-color rounded-full px-1 md:px-2 py-1 text-center items-center"
 				>
 					<span className="text-xs sm:text-sm md:text-base lg:text-lg pl-1 font-semibold text-theme-color">

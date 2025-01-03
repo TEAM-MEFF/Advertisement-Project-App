@@ -1,4 +1,3 @@
-import React from "react";
 import SalesByCategory from "./SalesByCategory";
 import MostViewedProduct from "./MostViewedProduct";
 import MostPurshased from "./MostPurshased";

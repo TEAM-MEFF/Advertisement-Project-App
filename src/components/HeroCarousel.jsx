@@ -99,7 +99,7 @@ const HeroCarousel = () => {
 					<div
 						key={index}
 						onClick={() => setCurrentIndex(index)}
-						className={`cursor-pointer w-12 h-1 mx-1 border border-green-500 rounded-full ${
+						className={`cursor-pointer w-12 h-1 mx-1 border border-inputRing rounded-full ${
 							currentIndex === index ? "bg-theme-color" : "bg-green-200"
 						}`}
 					></div>

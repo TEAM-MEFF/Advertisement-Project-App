@@ -140,8 +140,10 @@ const ProductFetch = () => {
 								>
 									<div className="flex justify-center items-center gap-1 p-1">
 										<span className="text-xs md:text-sm">
-											{" "}
-											Add to Cart {cartItems > 0 && <> ({cartItems})</>}
+											Add to Cart{" "}
+											{cartItems[product.id] > 0 && (
+												<> ({cartItems[product.id]})</>
+											)}
 										</span>
 										<IonIcon name="add-circle-outline" className="" />
 									</div>

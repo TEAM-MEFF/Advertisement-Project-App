@@ -24,7 +24,7 @@ const Login = () => {
 
 			// Navigate to the dashboard after showing the toast for 2 seconds
 			setTimeout(() => {
-				navigate("/vendordashboard");
+				navigate("/dashboard");
 			}, 2000); // Wait 2 seconds before navigation
 
 			if (response.status === 200) {
